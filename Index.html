@@ -3,56 +3,78 @@
 
 <head>
     <title>
-        Weather Forecast
+        API Examples
     </title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="site.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script> src = "js/bootstrap.min.js" ></script>
 </head>
 
 <body>
-    <div>
+    <div class="upper">
         <h1>
             Forecast
         </h1>
-    </div>
-    <div class="row">
-        <div class="col-md-1">
-            <Label for="latitude">Latitude:</Label>
+        <div class="row">
+            <div class="col-md-1">
+                <Label for="latitude">Latitude:</Label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="latitude">
+            </div>
         </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control" id="latitude">
+        <div class="row" id="longitudebox">
+            <div class="col-md-1">
+                <Label for="longitude">Longitude:</Label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="longitude">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-1">
-            <Label for="longitude">Longitude:</Label>
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control" id="longitude">
-        </div>
+        <button type="button" class="btn-primary btn-md" id="submit" onclick="loadData()">Click for forecast</button>
     </div>
     <div>
-        <button type="button" class="btn-primary btn-md" onclick="loadData()">Click for data</button>
-        <p class="ui text">
-            <table id="headers">
-                <tr>
-                    <th id="title">Time Period</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th id="title">Forecast</th>
-                </tr>
-            </table>
-            <table class="table" id="data">
-            </table>
-        </p>
+        <table id="headers">
+            <tr>
+                <th id="title">Time Period</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th id="title">Forecast</th>
+            </tr>
+        </table>
+        <table class="table" id="data">
+        </table>
+    </div>
+    <div class="upper">
+        <h1>Stock</h1>
+        <div class="row">
+            <div class="col-md-2">
+                <Label for="latitude">Stock Quote:</Label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="stocksymbol">
+            </div>
+        </div>
+        <button type="button" class="btn-primary btn-md" id="submit" onclick="loadStockData()">Stock Quote</button>
+    </div>
+    <br>
+    <div>
+        <table class="table">
+            <tr>
+                <th>Date</th>
+                <th>Symbol</th>
+                <th>Previous Close</th>
+                <th>Close</th>
+                <th>Change</th>
+            </tr>
+            <tr id="stock"></tr>
+        </table>
     </div>
     <script src="index.js"></script>
 </body>
