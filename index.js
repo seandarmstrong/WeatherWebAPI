@@ -26,27 +26,35 @@
 
 function loadData() {
   fetch(
-    `https://forecast.weather.gov/MapClick.php?lat=${
-      document.getElementById("latitude").value
-    }&lon=${document.getElementById("longitude").value}&FcstType=json`
+    `https://forecast.weather.gov/MapClick.php?lat=42.9634&lon=-85.6681&FcstType=json`
   )
     .then(response => response.json())
     .then(request => {
       let test = "";
       let timeArray = request.time.startPeriodName;
-      timeArray.forEach(item => {
-        test += `
-            <th>${item}</th>
-            `;
-        document.querySelector("#header").innerHTML = test;
-      });
-      let test2 = "";
       let textArray = request.data.text;
-      textArray.forEach(item => {
-        test2 += `
-            <td>${item}</td>
-            `;
-        document.querySelector("#weather").innerHTML = test2;
-      });
+      for (let i = 0; i < timeArray.length; i++) {
+        test += `
+        <tr>
+        <td>${timeArray[i]}</td>
+        <td>${textArray[i]}</td>
+        </tr>
+        `;
+        document.querySelector("#data").innerHTML = test;
+      }
+      //   timeArray.forEach(item => {
+      //     test += `
+      //         <tr>${item}</tr>
+      //         `;
+      //     document.querySelector("#days").innerHTML = test;
+      //   });
+      //   let test2 = "";
+      //   let textArray = request.data.text;
+      //   textArray.forEach(item => {
+      //     test2 += `
+      //         <tr>${item}</tr>
+      //         `;
+      //     document.querySelector("#forecast").innerHTML = test2;
+      //   });
     });
 }

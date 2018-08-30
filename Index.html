@@ -5,6 +5,10 @@
     <title>
         Weather Forecast
     </title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="site.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script> src = "js/bootstrap.min.js" ></script>
 </head>
 
 <body>
@@ -13,17 +17,40 @@
             Forecast
         </h1>
     </div>
-    <input type="text" id="latitude" />
-    <input type="text" id="longitude" />
+    <div class="row">
+        <div class="col-md-1">
+            <Label for="latitude">Latitude:</Label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="latitude">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <Label for="longitude">Longitude:</Label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="longitude">
+        </div>
+    </div>
     <div>
-        <button type="button" onclick="loadData()">Click for data</button>
+        <button type="button" class="btn-primary btn-md" onclick="loadData()">Click for data</button>
         <p class="ui text">
-            <table>
-                <tr id="header"></tr>
-                <tr id="weather"></tr>
+            <table id="headers">
+                <tr>
+                    <th id="title">Time Period</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th id="title">Forecast</th>
+                </tr>
             </table>
-            <table>
-
+            <table class="table" id="data">
             </table>
         </p>
     </div>
